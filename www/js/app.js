@@ -3,16 +3,40 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic','ngAnimate'])
 
 .controller('ProductCtrl', function($scope) {
   $scope.message = 'hello world';
-  $scope.products = ['apple', 'orange', 'banana', 'pineapple'];
+
+  //
+  // this list should be loaded by API
+  $scope.products = [
+    'Un panier fruits et légumes', 
+    'Une sélection de fromages', 
+    'Une sélection de viande', 
+    'Un panier de pain'
+  ];
 
   $scope.updateProduct = function(index) {
-    console.log('update ', index);
   }
 })
+
+.directive('onDash', ['$animate','$timeout',
+    function ($animate,$timeout) {
+        return {
+            link: function (scope, elem, attrs) {
+                elem.on('click', function () {
+                    var self = angular.element(this);
+                    $animate.addClass(self, 'on-dash').then(function () {
+                        $timeout(function() {
+                          self.removeClass('on-dash');
+                        },1000);
+                        
+                    });
+                });
+            }
+        };
+}])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
