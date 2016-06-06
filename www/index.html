@@ -25,50 +25,13 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane ng-controller="ProductCtrl">
-      <ion-header-bar class="bar-stable ng-cloak">
-        <h1 class="title">Karibou</h1>
-      </ion-header-bar>
-      <ion-content>
+    <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
 
-        <ion-slide-box on-slide-changed="slideChanged(index)">
-          <ion-slide ng-repeat="product in products">
-            <ion-content>
-              <div class="product ng-cloak" on-dash>
-                <div class="title">
-                    <span>{{ product }}</span>
-                </div>
-                <div class="button">
-                  <i class="fa fa-rocket fa-4x" aria-hidden="true"></i>
-                </div>
-              </div>
-            </ion-content>
-          </ion-slide>
-        </ion-slide-box>
-      </ion-content>
-    </ion-pane>
+    <ion-nav-view></ion-nav-view>
 
-    <style>
-    .slider {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      bottom: 0 !important;
-      right: 0 !important;
-    }
-    /*.slider-slide {
-      color: #000;
-      background-color: #ddd;
-    }*/
 
-    .button.ng-hide{
-      display:none;
-    }
-
-    .product-div, .scroll {
-      height: 100%;
-      min-height: 100%;
-    }
-    </style>
   </body>
 </html>
