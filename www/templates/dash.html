@@ -1,0 +1,28 @@
+<!--
+This template loads for the 'tab.dash-detail' state (app.js)
+'dash' is a $scope variable created in the DashCtrl controller (controllers.js)
+The DashCtrl pulls data from the Dash service (service.js)
+The Dash service returns an array of dash data
+-->
+<ion-view view-title="Rocket ">
+
+  <ion-content ng-controller="ProductCtrl">
+
+    <ion-slide-box on-slide-changed="slideChanged(index)">
+      <ion-slide ng-repeat="product in products">
+        <ion-content>
+          <div class="product ng-cloak" on-dash>
+            <div class="title">
+                <span>{{ product }}</span>
+            </div>
+            <div class="button">
+              <i class="fa fa-rocket fa-4x" aria-hidden="true"></i>
+            </div>
+          </div>
+        </ion-content>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+
+</ion-view>
+
